@@ -15,6 +15,7 @@ object Config {
   val configF: ConfigResult[Task, Config] =
     loadConfig(
       envF[Task, UserPortNumber]("PORT")
+        .orValue(UserPortNumber(8080))
     ) { portNumber =>
       Config(port = portNumber)
     }
