@@ -9,10 +9,11 @@ import org.http4s.server.blaze.BlazeServerBuilder
 import org.http4s.server.middleware.Logger
 import fs2.Stream
 import scala.concurrent.ExecutionContext.global
+import eu.timepit.refined.types.net.UserPortNumber
 
 object $name;format="Camel"$Server {
 
-  def stream[F[_]: ConcurrentEffect](implicit T: Timer[F], C: ContextShift[F]): Stream[F, Nothing] = {
+  def streamOn[F[_]: ConcurrentEffect](port: UserPortNumber)(implicit T: Timer[F], C: ContextShift[F]): Stream[F, Nothing] = {
     for {
       client <- BlazeClientBuilder[F](global).stream
       helloWorldAlg = HelloWorld.impl[F]
@@ -31,7 +32,7 @@ object $name;format="Camel"$Server {
       finalHttpApp = Logger.httpApp(true, true)(httpApp)
 
       exitCode <- BlazeServerBuilder[F]
-        .bindHttp(8080, "0.0.0.0")
+        .bindHttp(port.value, "0.0.0.0")
         .withHttpApp(finalHttpApp)
         .serve
     } yield exitCode

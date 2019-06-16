@@ -14,5 +14,5 @@ object Main extends App {
                     $name;format="Camel"$Server.streamOn[Task](config.port).compile.drain
                   }
     } yield program)
-    .foldM(failure => putStrLn(s"Abort with error: $failure") *> ZIO.succeed(1), _ => ZIO.succeed(0))
+    .foldM(failure => putStrLn(s"Abort with error: \$failure") *> ZIO.succeed(1), _ => ZIO.succeed(0))
 }
