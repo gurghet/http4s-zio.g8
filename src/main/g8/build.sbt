@@ -3,6 +3,7 @@ val CirceVersion = "$circe_version$"
 val Specs2Version = "$specs2_version$"
 val LogbackVersion = "$logback_version$"
 val ZioVersion = "$zio_version$"
+val CirisVersion = "$ciris_version$"
 
 lazy val root = (project in file("."))
   .settings(
@@ -21,6 +22,11 @@ lazy val root = (project in file("."))
       "ch.qos.logback"  %  "logback-classic"         % LogbackVersion,
       "org.scalaz"      %% "scalaz-zio"              % ZioVersion,
       "org.scalaz"      %% "scalaz-zio-interop-cats" % ZioVersion,
+      "is.cir"          %% "ciris-cats"              % CirisVersion,
+      "is.cir"          %% "ciris-cats-effect"       % CirisVersion,
+      "is.cir"          %% "ciris-core"              % CirisVersion,
+      "is.cir"          %% "ciris-refined"           % CirisVersion,
+      "is.cir"          %% "ciris-generic"           % CirisVersion,
     ),
     addCompilerPlugin("org.spire-math" %% "kind-projector"     % "0.9.6"),
     addCompilerPlugin("com.olegpy"     %% "better-monadic-for" % "0.2.4"),
