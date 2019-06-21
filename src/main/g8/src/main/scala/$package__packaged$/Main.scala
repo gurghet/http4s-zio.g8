@@ -1,15 +1,15 @@
 package $package$
 
+import $package$.configuration.Configuration
 import scalaz.zio._
 import scalaz.zio.console._
 import scalaz.zio.interop.catz._
 import scalaz.zio.interop.catz.implicits._
-import ciris.refined._
 
 object Main extends App {
   override def run(args: List[String]): ZIO[Environment,Nothing,Int] =
     (for {
-      config <- Config.configF.result.absolve
+      config <- configuration.load.provide(Configuration.Live)
       program <-  ZIO.runtime[Environment].flatMap { implicit rt =>
                     $name;format="Camel"$Server.streamOn[Task](config.port).compile.drain
                   }
