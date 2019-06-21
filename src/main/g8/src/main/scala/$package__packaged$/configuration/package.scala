@@ -1,5 +1,4 @@
 package $package$
-package configuration
 
 import scalaz.zio.TaskR
 
