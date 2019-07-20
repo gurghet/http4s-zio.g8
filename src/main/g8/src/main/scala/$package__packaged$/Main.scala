@@ -1,10 +1,10 @@
 package $package$
 
 import $package$.configuration.Configuration
-import scalaz.zio._
-import scalaz.zio.console._
-import scalaz.zio.interop.catz._
-import scalaz.zio.interop.catz.implicits._
+import zio._
+import zio.console._
+import zio.interop.catz._
+import zio.interop.catz.implicits._
 
 object Main extends App {
   override def run(args: List[String]): ZIO[Environment,Nothing,Int] =

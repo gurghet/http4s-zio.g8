@@ -5,8 +5,8 @@ import ciris.cats.effect._
 import ciris.refined._
 import ciris.{ConfigErrors, ConfigResult, envF, loadConfig}
 import eu.timepit.refined.types.net.UserPortNumber
-import scalaz.zio.interop.catz._
-import scalaz.zio.{Task, TaskR}
+import zio.interop.catz._
+import zio.{Task, TaskR}
 import cats.implicits._
 
 final case class ServerConfig(
