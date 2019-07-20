@@ -3,6 +3,7 @@ val CirceVersion = "$circe_version$"
 val Specs2Version = "$specs2_version$"
 val LogbackVersion = "$logback_version$"
 val ZioVersion = "$zio_version$"
+val ZioInteropVersion = "$zio_interop_version$"
 val CirisVersion = "$ciris_version$"
 
 lazy val root = (project in file("."))
@@ -20,8 +21,8 @@ lazy val root = (project in file("."))
       "io.circe"        %% "circe-generic"           % CirceVersion,
       "org.specs2"      %% "specs2-core"             % Specs2Version % "test",
       "ch.qos.logback"  %  "logback-classic"         % LogbackVersion,
-      "org.scalaz"      %% "scalaz-zio"              % ZioVersion,
-      "org.scalaz"      %% "scalaz-zio-interop-cats" % ZioVersion,
+      "dev.zio"         %% "zio"                     % ZioVersion,
+      "dev.zio"         %% "zio-interop-cats"        % ZioInteropVersion,
       "is.cir"          %% "ciris-cats"              % CirisVersion,
       "is.cir"          %% "ciris-cats-effect"       % CirisVersion,
       "is.cir"          %% "ciris-core"              % CirisVersion,
