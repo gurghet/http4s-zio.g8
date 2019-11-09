@@ -28,8 +28,8 @@ lazy val root = (project in file("."))
       "is.cir"          %% "ciris-refined"           % CirisVersion,
       "is.cir"          %% "ciris-generic"           % CirisVersion,
     ),
-    addCompilerPlugin("org.spire-math" %% "kind-projector"     % "0.9.6"),
-    addCompilerPlugin("com.olegpy"     %% "better-monadic-for" % "0.2.4"),
+    addCompilerPlugin("org.typelevel" %% "kind-projector"     % "0.10.3"),
+    addCompilerPlugin("com.olegpy"    %% "better-monadic-for" % "0.3.0")
   )
 
 scalacOptions ++= Seq(
